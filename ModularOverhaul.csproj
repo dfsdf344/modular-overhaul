@@ -33,30 +33,28 @@
     <DefineConstants>NETESCAPADES_ENUMGENERATORS_EMBED_ATTRIBUTES</DefineConstants>
 
     <!-- game version -->
-    <GameVersion>1.5.6</GameVersion>
-    <SmapiVersion>3.18</SmapiVersion>
+    <GameVersion>1.6.0</GameVersion>
+    <SmapiVersion>4.0.0</SmapiVersion>
   </PropertyGroup>
 
   <!-- paths -->
   <PropertyGroup>
-    <GamePath>G:\Steam\steamapps\common\Stardew Valley 1.5.6</GamePath>
-    <GameModsPath>$(GamePath)/Mods - Build/$(Configuration)</GameModsPath>
-    <ModZipPath>$(GamePath)/Mods - Build/Archive</ModZipPath>
+    <GamePath>G:\Steam\steamapps\common\Stardew Valley</GamePath>
+    <GameModsPath>$(GamePath)/Mods/Build</GameModsPath>
+    <ModZipPath>$(GameModsPath)/Archive</ModZipPath>
   </PropertyGroup>
 
-  <!-- non-release settings -->
-  <PropertyGroup Condition="$(Configuration) != 'Release'">
+  <!-- debug settings -->
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
     <EnableModZip>true</EnableModZip>
-    <DebugType>Portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
 
   <!-- release settings -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
-    <DebugType>embedded</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>embedded</DebugType>
   </PropertyGroup>
 
